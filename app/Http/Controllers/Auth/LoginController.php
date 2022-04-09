@@ -20,7 +20,7 @@ class LoginController extends Controller
         ]);
 
 
-        if (!auth()->attempt($request->only('username','password'), $request->remember))
+        if (!auth()->attempt($request->only('username','password')))
         {
             return back()->with('status', 'Pogrešni podaci za prijavu');
         }
