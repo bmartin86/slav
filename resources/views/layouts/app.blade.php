@@ -12,10 +12,10 @@
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li>
-                <a href="" class="p-3">Home</a>
+                <a href="/home" class="p-3">Home</a>
             </li>
             <li>
-                <a href="" class="p-3">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="p-3">Početna</a>
             </li>
             <li>
                 <a href="" class="p-3">Član</a>
@@ -27,10 +27,13 @@
                 <a href="" class="p-3">Ime člana</a>
             </li>
             <li>
-                <a href="" class="p-3">Login</a>
+                <a href="{{ route('login') }}" class="p-3">Prijavi se</a>
             </li>
             <li>
-                <a href="" class="p-3">Logout</a>
+                <form action="{{ route('logout') }}" method="post" class="p-3 inline">
+                    @csrf
+                    <button type="submit">Odjavi se</button>
+                </form>
             </li>
         </ul>
     </nav>
