@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     public function username()
     {
 	    return 'username';
@@ -24,7 +29,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         
-        
+
         if (!auth()->attempt($request->only('username','password')))
         {
             return back()->with('status', 'Pogrešni podaci za prijavu');
