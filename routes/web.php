@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\Auth\LogoutController;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/clan', [ClanController::class, 'index'])->name('clan.index');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

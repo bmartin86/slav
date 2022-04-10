@@ -11,15 +11,19 @@
 <body class="bg-gray-200">
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
+            @guest
             <li>
                 <a href="/" class="p-3">Home</a>
             </li>
+            @endguest
+            @auth
             <li>
                 <a href="{{ route('dashboard') }}" class="p-3">Početna</a>
             </li>
             <li>
-                <a href="" class="p-3">Član</a>
+                <a href="{{ route('clan.index') }}" class="p-3">Član</a>
             </li>
+            @endauth
         </ul>
 
         <ul class="flex items-center">
