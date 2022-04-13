@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @auth
     <div class="flex justify-center">
         <div class="w-6/12 bg-white p-6 rounded-lg">
             <h3 class="text-2xl font-bold mb-4">{{auth()->user()->ime}} {{auth()->user()->prezime}}
@@ -61,7 +62,7 @@
 
                 @if (auth()->user()->internet)
                     <li class="mb-2">
-                        <a href="https://{{auth()->user()->internet}}" target="_blank">{{auth()->user()->internet}}</a>
+                        <a href="https://{{auth()->user()->internet}}" target="_blank" class="text-blue-500 underline">{{auth()->user()->internet}}</a>
                     </li>
                 @endif
 
@@ -79,7 +80,14 @@
                     </li>
                 @endif
             </ul>
+            <hr>
+            <div class="mt-7 mb-2">
+                <a href="{{ route('clan.edit', auth()->user()) }}" class="bg-white text-green-500 px-4 py-2 rounded
+                    font-medium border-2 border-green-400">Izmijeni podatke</a>
+                    
+            </div>
         </div>
     </div>
+    @endauth
 @endsection
 

@@ -23,6 +23,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/clan', [ClanController::class, 'index'])->name('clan.index');
+Route::get('/clan/{clan:username}/edit', [ClanController::class, 'edit'])->name('clan.edit');
+Route::post('/clan/{clan:username}/edit', [ClanController::class, 'modify']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
