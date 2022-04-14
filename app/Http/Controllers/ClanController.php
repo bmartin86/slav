@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Clan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClanController extends Controller
 {
@@ -14,7 +15,8 @@ class ClanController extends Controller
     
     public function index()
     {
-        return view ('clan.index');
+        $clan = auth()->user();
+        return view ('clan.index')->with(compact('clan'));
     }
 
     public function edit(Clan $clan)

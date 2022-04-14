@@ -32,7 +32,7 @@
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg" value="{{ auth()->user()->oib }}">
                     </div>
                     <div class="mb-4">
-                        <label for="datum_rodjenja" class="text-sm font-bold ml-2">Datum rođenja (mm/dd/gggg):</label>
+                        <label for="datum_rodjenja" class="text-sm font-bold ml-2">Datum rođenja:</label>
                         <input type="date" name="datum_rodjenja" id="datum_rodjenja" placeholder="Datum rođenja"
                         class="bg-gray-100 border-2 w-full p-4 rounded-lg" value="{{ auth()->user()->datum_rodjenja }}">
                     </div>

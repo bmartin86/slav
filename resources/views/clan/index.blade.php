@@ -4,85 +4,85 @@
     @auth
     <div class="flex justify-center">
         <div class="w-6/12 bg-white p-6 rounded-lg">
-            <h3 class="text-2xl font-bold mb-4">{{auth()->user()->ime}} {{auth()->user()->prezime}}
-                @if (auth()->user()->umjetnicko_ime)
-                    - {{auth()->user()->umjetnicko_ime}}
+            <h3 class="text-2xl font-bold mb-4">{{$clan->ime}} {{$clan->prezime}}
+                @if ($clan->umjetnicko_ime)
+                    - {{$clan->umjetnicko_ime}}
                 @endif
-                @if (auth()->user()->zanimanje)
-                    , {{auth()->user()->zanimanje}}
+                @if ($clan->zanimanje)
+                    , {{$clan->zanimanje}}
                 @endif
             </h3>
             <ul class="text-md font-bold">
                 <li class="mb-2">
-                    Datum rođenja: <b>{{auth()->user()->datum_rodjenja}}</b>
+                    Datum rođenja: <b>{{$clan->datum_rodjenja}}</b>
                 </li>
                 <li class="mb-2">
-                    JMBG: <b>{{auth()->user()->jmbg}}</b>
+                    JMBG: <b>{{$clan->jmbg}}</b>
                 </li>
                 <li class="mb-2">
-                    OIB: <b>{{auth()->user()->oib}}</b>
+                    OIB: <b>{{$clan->oib}}</b>
                 </li>
 
-                @if (!auth()->user()->adresa_boravista)
+                @if (!$clan->adresa_boravista)
                     <li class="mb-2">   
-                        Adresa: <b>{{auth()->user()->adresa_prebivalista}}</b>
+                        Adresa: <b>{{$clan->adresa_prebivalista}}</b>
                     </li>
                 @else
                     <li class="mb-2">
-                        Adresa prebivališta: <b>{{auth()->user()->adresa_prebivalista}}</b>
+                        Adresa prebivališta: <b>{{$clan->adresa_prebivalista}}</b>
                     </li>
                     <li class="mb-2">
-                        Adresa boravišta: <b>{{auth()->user()->adresa_boravista}}</b>
-                    </li>
-                @endif
-
-                @if (auth()->user()->telefon)
-                    <li class="mb-2">
-                        Broj telefona: <b>{{auth()->user()->telefon}}</b>
+                        Adresa boravišta: <b>{{$clan->adresa_boravista}}</b>
                     </li>
                 @endif
 
-                @if (auth()->user()->fax)
+                @if ($clan->telefon)
                     <li class="mb-2">
-                        Fax: <b>{{auth()->user()->fax}}</b>
+                        Broj telefona: <b>{{$clan->telefon}}</b>
                     </li>
                 @endif
 
-                @if (auth()->user()->mobitel)
+                @if ($clan->fax)
                     <li class="mb-2">
-                        Broj mobitela: <b>{{auth()->user()->mobitel}}</b>
+                        Fax: <b>{{$clan->fax}}</b>
                     </li>
                 @endif
 
-                @if (auth()->user()->email)
+                @if ($clan->mobitel)
                     <li class="mb-2">
-                        E-mail: <b>{{auth()->user()->email}}</b>
+                        Broj mobitela: <b>{{$clan->mobitel}}</b>
                     </li>
                 @endif
 
-                @if (auth()->user()->internet)
+                @if ($clan->email)
                     <li class="mb-2">
-                        <a href="https://{{auth()->user()->internet}}" target="_blank" class="text-blue-500 underline">{{auth()->user()->internet}}</a>
+                        E-mail: <b>{{$clan->email}}</b>
+                    </li>
+                @endif
+
+                @if ($clan->internet)
+                    <li class="mb-2">
+                        <a href="https://{{$clan->internet}}" target="_blank" class="text-blue-500 underline">{{$clan->internet}}</a>
                     </li>
                 @endif
 
                 
 
-                @if (auth()->user()->zaposlenje)
+                @if ($clan->zaposlenje)
                     <li class="mb-2">
-                        Zaposlenje: <b>{{auth()->user()->zaposlenje}}</b>
+                        Zaposlenje: <b>{{$clan->zaposlenje}}</b>
                     </li>
                 @endif
 
-                @if (auth()->user()->manager)
+                @if ($clan->manager)
                     <li class="mb-2">
-                        Manager: <b>{{auth()->user()->manager}}</b>
+                        Manager: <b>{{$clan->manager}}</b>
                     </li>
                 @endif
             </ul>
             <hr>
             <div class="mt-7 mb-2">
-                <a href="{{ route('clan.edit', auth()->user()) }}" class="bg-white text-green-500 px-4 py-2 rounded
+                <a href="{{ route('clan.edit', $clan) }}" class="bg-white text-green-500 px-4 py-2 rounded
                     font-medium border-2 border-green-400">Izmijeni podatke</a>
                     
             </div>
