@@ -2,6 +2,9 @@
 
 namespace App\Mail;
 
+
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -18,7 +21,7 @@ class ClanEdit extends Mailable
      *
      * @return void
      */
-    public function __construct($clan, $request)
+    public function __construct(User $clan, Request $request)
     {
         $this->clan = $clan;
         $this->request = $request;
@@ -32,6 +35,6 @@ class ClanEdit extends Mailable
     public function build()
     {
         return $this->markdown('emails.clan.edit')
-            ->subject('Zahtjev za izmjenom podataka člana');
+            ->subject('Zahtjev za izmjenom podataka');
     }
 }
